@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, MessageCircle, ShoppingBag } from 'lucide-react';
+import heroImage from '@/assets/hero-image.jpg';
 
 const Hero = () => {
   const whatsappUrl = "https://wa.me/923391261267?text=Hello%20Smart%20Mart,%20I%20want%20to%20place%20an%20order.";
@@ -10,16 +11,22 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-smart-red via-smart-red-dark to-smart-green">
-        <div className="absolute inset-0 bg-black/20"></div>
+      {/* Hero Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={heroImage} 
+          alt="Smart Mart Shopping" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-smart-red/80 via-smart-red-dark/70 to-smart-green/80"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
         
         {/* Floating Elements */}
         <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
+          {[...Array(15)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-2 h-2 bg-white/10 rounded-full"
+              className="absolute w-2 h-2 bg-white/20 rounded-full"
               animate={{
                 x: [0, 100, 0],
                 y: [0, -100, 0],
@@ -52,7 +59,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-            className="hero-title mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-tight tracking-tight mb-6"
           >
             Your Smart
             <motion.span
@@ -70,7 +77,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="hero-subtitle mb-12 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl text-white/90 font-light leading-relaxed mb-8 sm:mb-12 max-w-2xl mx-auto px-4"
           >
             Experience premium shopping with Smart Mart. Quality products, unbeatable prices, 
             and instant WhatsApp ordering for your convenience.
@@ -81,7 +88,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4"
           >
             <motion.button
               onClick={scrollToProducts}
