@@ -18,12 +18,30 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'inter': ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				'smart-red': {
+					DEFAULT: 'hsl(var(--smart-red))',
+					light: 'hsl(var(--smart-red-light))',
+					dark: 'hsl(var(--smart-red-dark))',
+				},
+				'smart-green': {
+					DEFAULT: 'hsl(var(--smart-green))',
+					light: 'hsl(var(--smart-green-light))',
+					dark: 'hsl(var(--smart-green-dark))',
+				},
+				'smart-gray': {
+					DEFAULT: 'hsl(var(--smart-gray))',
+					light: 'hsl(var(--smart-gray-light))',
+					dark: 'hsl(var(--smart-gray-dark))',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'

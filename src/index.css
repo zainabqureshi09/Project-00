@@ -1,15 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Smart Mart Design System - Professional & Luxurious */
 
 @layer base {
   :root {
+    /* Smart Mart Brand Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 9%;
+    
+    /* Smart Mart Brand Identity */
+    --smart-red: 0 85% 55%;
+    --smart-red-light: 0 85% 65%;
+    --smart-red-dark: 0 85% 45%;
+    --smart-green: 142 70% 45%;
+    --smart-green-light: 142 70% 55%;
+    --smart-green-dark: 142 70% 35%;
+    --smart-white: 0 0% 100%;
+    --smart-gray: 210 20% 50%;
+    --smart-gray-light: 210 20% 90%;
+    --smart-gray-dark: 210 20% 20%;
+    
+    /* Luxury Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--smart-red)), hsl(var(--smart-red-light)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--smart-green)), hsl(var(--smart-green-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--smart-red)) 0%, hsl(var(--smart-green)) 100%);
+    --gradient-luxury: linear-gradient(135deg, hsl(0 0% 10%) 0%, hsl(var(--smart-red-dark)) 50%, hsl(var(--smart-green-dark)) 100%);
+    
+    /* Shadows & Effects */
+    --shadow-luxury: 0 20px 40px -12px hsl(var(--smart-red) / 0.25);
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.15);
+    --shadow-glow: 0 0 40px hsl(var(--smart-red) / 0.3);
+    
+    /* Typography Scale */
+    --font-hero: 4.5rem;
+    --font-title: 3rem;
+    --font-subtitle: 1.5rem;
+    --font-body: 1rem;
+    
+    /* Transitions */
+    --transition-luxury: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -99,7 +133,62 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  /* Smart Mart Button Variants */
+  .btn-smart-primary {
+    @apply bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:from-red-600 hover:to-red-700;
+  }
+
+  .btn-smart-secondary {
+    @apply bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:from-green-600 hover:to-green-700;
+  }
+
+  .btn-whatsapp {
+    @apply bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center gap-2;
+  }
+
+  .btn-hero {
+    @apply bg-gradient-to-r from-red-500 via-red-600 to-green-500 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 relative overflow-hidden;
+  }
+
+  /* Product Cards */
+  .product-card {
+    @apply bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 p-6 border border-gray-100;
+  }
+
+  /* Hero Typography */
+  .hero-title {
+    @apply text-6xl md:text-7xl lg:text-8xl font-black text-white leading-tight tracking-tight;
+  }
+
+  .hero-subtitle {
+    @apply text-xl md:text-2xl text-white/90 font-light leading-relaxed;
+  }
+
+  /* Luxury Text Effects */
+  .text-gradient-smart {
+    @apply bg-gradient-to-r from-red-500 to-green-500 bg-clip-text text-transparent;
+  }
+
+  .text-luxury {
+    @apply text-gray-800 font-semibold tracking-wide;
+  }
+
+  /* Section Styling */
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 lg:py-24;
+  }
+
+  .container-smart {
+    @apply max-w-7xl mx-auto;
   }
 }
